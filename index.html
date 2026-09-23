@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scene Builder – Sun, Tree, Bottle & Grass</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <p id="para">hi</p>
-    <script src="main.js"></script>
+  <h1>Scene Builder</h1>
+  <p class="subtitle">
+    Select an object, then use the sliders & color picker to move, scale, skew, rotate and recolor it.
+  </p>
+
+  <div class="layout">
+    <!-- Stage -->
+    <div class="stage-wrapper">
+      <div id="stage">
+        <!-- Sun -->
+        <div id="sun" class="scene-item" data-name="sun" title="Sun"></div>
+
+        <!-- Tree -->
+        <div id="tree" class="scene-item" data-name="tree" title="Tree">
+          <div class="tree-foliage"></div>
+          <div class="tree-trunk"></div>
+        </div>
+
+        <!-- Water Bottle -->
+        <div id="bottle" class="scene-item" data-name="bottle" title="Water Bottle">
+          <div class="bottle-cap"></div>
+          <div class="bottle-neck"></div>
+          <div class="bottle-body">
+            <div class="bottle-label">H₂O</div>
+          </div>
+        </div>
+
+        <!-- Grass -->
+        <div id="grass" class="scene-item" data-name="grass" title="Grass"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <h2>Object Controls</h2>
+
+      <div class="object-select" id="objectSelect">
+        <button class="object-btn active" data-target="sun">☀ Sun</button>
+        <button class="object-btn" data-target="tree">🌳 Tree</button>
+        <button class="object-btn" data-target="bottle">🧴 Bottle</button>
+        <button class="object-btn" data-target="grass">🌿 Grass</button>
+      </div>
+
+      <!-- Position -->
+      <div class="control-group">
+        <label>X Position <span class="value" id="xVal">0%</span></label>
+        <input type="range" id="posX" min="0" max="100" value="70" step="0.5" />
+      </div>
+      <div class="control-group">
+        <label>Y Position <span class="value" id="yVal">0%</span></label>
+        <input type="range" id="posY" min="0" max="100" value="12" step="0.5" />
+      </div>
+
+      <!-- Transform -->
+      <div class="control-group">
+        <label>Rotate <span class="value" id="rotVal">0°</span></label>
+        <input type="range" id="rotate" min="-180" max="180" value="0" step="1" />
+      </div>
+      <div class="control-group">
+        <label>Skew X <span class="value" id="skewXVal">0°</span></label>
+        <input type="range" id="skewX" min="-60" max="60" value="0" step="1" />
+      </div>
+      <div class="control-group">
+        <label>Skew Y <span class="value" id="skewYVal">0°</span></label>
+        <input type="range" id="skewY" min="-60" max="60" value="0" step="1" />
+      </div>
+      <div class="control-group">
+        <label>Scale <span class="value" id="scaleVal">1.00</span></label>
+        <input type="range" id="scale" min="0.2" max="2.5" value="1" step="0.05" />
+      </div>
+
+      <!-- Color -->
+      <div class="control-group">
+        <label>Main Color</label>
+        <input type="color" id="colorPicker" value="#facc15" />
+      </div>
+
+      <!-- Live CSS -->
+      <div class="transform-code" id="transformCode">
+        transform: rotate(0deg) skewX(0deg) skewY(0deg) scale(1.00);
+      </div>
+
+      <button class="reset-btn" id="resetBtn">Reset Selected Object</button>
+    </div>
+  </div>
+
+  <footer>HTML · CSS · JavaScript · Reusable transform helpers</footer>
+
+  <script src="script.js"></script>
 </body>
+</html>
