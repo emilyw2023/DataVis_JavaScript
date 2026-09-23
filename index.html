@@ -2,21 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Scene Builder</title>
+  <title>Style Editor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="app-shell">
+    <aside class="controls-panel">
 
-  <h2>Summer</h2>
+      <div class="control-group">
+        <label for="target-select">Object</label>
+        <select id="target-select">
+          <option value="sun">Sun</option>
+          <option value="tree">Tree</option>
+          <option value="bottle">Bottle</option>
+          <option value="grass">Grass</option>
+          <option value="text">Text</option>
+          <option value="shape">Shape</option>
+        </select>
+      </div>
 
-  <div id="bg" aria-label="Picture sheet">
-    <div class="scene-item sun" data-name="sun"></div>
-    <div class="scene-item tree" data-name="tree"></div>
-    <div class="scene-item bottle" data-name="bottle"></div>
-    <div class="scene-item grass" data-name="grass"></div>
+      <div class="control-group">
+        <label for="size-width">Width</label>
+        <input id="size-width" type="range" min="40" max="500" value="120" />
+      </div>
+
+      <div class="control-group">
+        <label for="size-height">Height</label>
+        <input id="size-height" type="range" min="40" max="500" value="120" />
+      </div>
+
+      <div class="control-group">
+        <label for="scale-control">Scale</label>
+        <input id="scale-control" type="range" min="0.3" max="2.5" step="0.1" value="1" />
+      </div>
+
+      <div class="control-group">
+        <label for="skew-x">Skew X</label>
+        <input id="skew-x" type="range" min="-45" max="45" value="0" />
+      </div>
+
+      <div class="control-group">
+        <label for="skew-y">Skew Y</label>
+        <input id="skew-y" type="range" min="-45" max="45" value="0" />
+      </div>
+
+      <div class="control-group">
+        <label for="pos-x">X Position</label>
+        <input id="pos-x" type="range" min="0" max="700" value="40" />
+      </div>
+
+      <div class="control-group">
+        <label for="pos-y">Y Position</label>
+        <input id="pos-y" type="range" min="0" max="500" value="30" />
+      </div>
+
+    </aside>
+
+    <main class="scene-panel">
+
+      <div id="bg" aria-label="Picture sheet">
+        <div class="scene-item sun" data-name="sun"></div>
+        <div class="scene-item tree" data-name="tree"></div>
+        <div class="scene-item bottle" data-name="bottle"></div>
+        <div class="scene-item grass" data-name="grass"></div>
+      </div>
+
+
+    </main>
   </div>
-
-  <p class="hint">Drag any picture around the sheet.</p>
 
   <script src="main.js"></script>
 </body>
